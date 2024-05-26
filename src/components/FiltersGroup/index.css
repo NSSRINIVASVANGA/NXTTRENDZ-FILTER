@@ -14,6 +14,13 @@
 
 /* Write your CSS here */
 
+.list-item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+
 .input-con {
   display: flex;
   align-items: center;
@@ -35,6 +42,11 @@
 .category {
   color: #0f172a;
   font-size: 18px;
+}
+
+.category-con {
+  list-style-type: none;
+  padding-left: 0px;
 }
 
 .option {
@@ -75,20 +87,18 @@ span {
 .extra {
   color: #64748b;
   font-family: 'Roboto';
-  cursor: pointer;
-  outline: none;
 }
 
 .extra-click {
   color: #0967d2;
   font-family: 'Roboto';
-  cursor: pointer;
-  outline: none;
 }
 
 .ratings-con {
   display: flex;
   flex-direction: column;
+  list-style-type: none;
+  padding-left: 0px;
 }
 
 .clr-button {

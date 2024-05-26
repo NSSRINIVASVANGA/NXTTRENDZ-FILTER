@@ -23,10 +23,6 @@ const FiltersGroup = props => {
     changeOptions(event.target.id)
   }
 
-  const ratingChange = event => {
-    changeRating(event.target.id)
-  }
-
   const clearFilters = () => {
     filtersClear()
   }
@@ -42,8 +38,8 @@ const FiltersGroup = props => {
         />
         <IoSearch />
       </div>
+      <h1 className="category"> Category </h1>
       <div className="category-con">
-        <h1 className="category"> Category </h1>
         {categoryOptions.map(eachCategory => (
           <p
             className={
@@ -58,28 +54,30 @@ const FiltersGroup = props => {
           </p>
         ))}
       </div>
-      <div className="raings-con">
-        <h1 className="category"> Rating </h1>
-        {ratingsList.map(eachRating => (
-          <p
-            id={eachRating.ratingId}
-            className={
-              eachRating.ratingId === ratingValue ? 'extra-click' : 'extra'
-            }
-            onClick={ratingChange}
-          >
-            <img
-              src={eachRating.imageUrl}
-              alt={`rating ${eachRating.ratingId}`}
-              className="stars-img"
-            />
-            &up
-          </p>
-        ))}
-      </div>
+      <h1 className="category"> Rating </h1>
+      <ul className="ratings-con">
+        {ratingsList.map(eachRating => {
+          const ratingChange = () => changeRating(eachRating.ratingId)
+          const classVal =
+            eachRating.ratingId === ratingValue ? 'extra-click' : 'extra'
+          return (
+            <li
+              className="list-item"
+              key={eachRating.ratingId}
+              onClick={ratingChange}
+            >
+              <img
+                src={eachRating.imageUrl}
+                alt={`rating ${eachRating.ratingId}`}
+                className="stars-img"
+              />
+              <p className={classVal}> & up </p>
+            </li>
+          )
+        })}
+      </ul>
       <button className="clr-button" onClick={clearFilters} type="button">
-        {' '}
-        Clear Filters{' '}
+        Clear Filters
       </button>
     </div>
   )

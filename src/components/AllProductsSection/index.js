@@ -112,7 +112,7 @@ class AllProductsSection extends Component {
     // TODO: Update the code to get products with filters applied
 
     const {activeOptionId, searchValue, activeValue, ratingValue} = this.state
-    const apiUrl = `https://apis.ccbp.in/products?sort_by=${activeOptionId}&&category=${activeValue}&title_search=${searchValue}&rating=${ratingValue}`
+    const apiUrl = `https://apis.ccbp.in/products?sort_by=${activeOptionId}&category=${activeValue}&title_search=${searchValue}&rating=${ratingValue}`
     const options = {
       headers: {
         Authorization: `Bearer ${jwtToken}`,
@@ -163,7 +163,7 @@ class AllProductsSection extends Component {
               alt="no products"
             />
             <h1> No Products Found </h1>
-            <p> We could not find any products. Try other filters </p>
+            <p> We could not find any products. Try other filters. </p>
           </div>
         )}
       </div>
